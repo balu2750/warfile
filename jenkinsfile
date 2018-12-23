@@ -12,6 +12,6 @@ node {
         sh 'docker run -d --name mydeployment -v /var/lib/jenkins/workspace/test-pipe/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8000:8000 tomcat:latest'
         sh 'docker start mydeployment'
         sh 'docker exec mydeployment /usr/local/tomcat/bin/shutdown.sh' 
-        sh 'docker exec mydeployment /usr/local/tomcat/bin/start.sh'
+        sh 'docker exec mydeployment /usr/local/tomcat/bin/startup.sh'
     }
 }
