@@ -1,6 +1,7 @@
 node {  
     stage('compile') { 
         sh 'cd /var/lib/jenkins/workspace/test-pipe'
+        sh 'rm -rf *'
         sh 'git clone https://github.com/balu2750/warfile'
     }
     stage('Test') {
