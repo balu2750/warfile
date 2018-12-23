@@ -5,8 +5,8 @@ node {
         sh 'git clone https://github.com/balu2750/warfile'
     }
     stage('Test') {
-        sh 'cd /var/lib/jenkins/workspace/test-pipe/warfile'
-        sh 'mvn clean package' 
+        sh 'mv var/lib/jenkins/workspace/test-pipe/warfile/pom.xml var/lib/jenkins/workspace/test-pipe/warfile/jenkins/workspace/test-pipe/'
+        sh 'mvn clean package'     
     }
     stage('Deploy') { 
         sh 'docker -itd --name mydeployment -v ./warfile/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8080:8080 tomcat:latest -exec /usr/local/tomcat/bin/shutdown.sh && /usr/local/tomcat/bin/start.sh'
