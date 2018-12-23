@@ -5,10 +5,10 @@ node {
         sh 'git clone https://github.com/balu2750/warfile'
     }
     stage('Test') {
-        sh 'mv /var/lib/jenkins/workspace/test-pipe/warfile/pom.xml /var/lib/jenkins/workspace/test-pipe/'
+        sh 'mv /var/lib/jenkins/workspace/test-pipe/warfile/* /var/lib/jenkins/workspace/test-pipe/'
         sh 'mvn clean package'     
     }
     stage('Deploy') { 
-        sh 'docker -itd --name mydeployment -v /var/lib/jenkins/workspace/test-pipe/warfile/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8080:8080 tomcat:latest -exec /usr/local/tomcat/bin/shutdown.sh && /usr/local/tomcat/bin/start.sh'
+        sh 'docker -itd --name mydeployment -v /var/lib/jenkins/workspace/test-pipe/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8080:8080 tomcat:latest -exec /usr/local/tomcat/bin/shutdown.sh && /usr/local/tomcat/bin/start.sh'
     }
 }
