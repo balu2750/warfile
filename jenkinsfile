@@ -1,0 +1,12 @@
+node {  
+    stage('compile') { 
+        sh 'cd ./warfile'
+        sh 'mvn --version'
+    }
+    stage('Test') { 
+        sh 'mvn clean package' 
+    }
+    stage('Deploy') { 
+        sh 'docker -itd --name mydeployment -v ./warfile/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8080:8080 tomcat:latest -exec /usr/local/tomcat/bin/shutdown.sh && /usr/local/tomcat/bin/start.sh
+    }
+}
