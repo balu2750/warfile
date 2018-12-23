@@ -1,6 +1,6 @@
 node {  
     stage('compile') { 
-        sh 'cd /var/lib/jenkins/workspace/warfile'
+        sh 'cd /var/lib/jenkins/workspace/test-pipe'
         sh 'mvn --version'
     }
     stage('Test') { 
