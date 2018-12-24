@@ -9,7 +9,7 @@ node {
         sh 'mvn clean package'     
     }
     stage('Deploy') { 
-        sh 'docker run -d --name mydeployment -v /var/lib/jenkins/workspace/test-pipe/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8081:8080 tomcat:latest'
+        sh 'docker run -itd --name mydeployment -v /var/lib/jenkins/workspace/test-pipe/src/main/webapp/:/usr/local/tomcat/webapps/ -p 8081:8080 tomcat:latest'
         sh 'docker start mydeployment'
         sh 'docker exec mydeployment /usr/local/tomcat/bin/shutdown.sh' 
         sh 'docker exec mydeployment /usr/local/tomcat/bin/startup.sh'
