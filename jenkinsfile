@@ -15,7 +15,7 @@ node {
         sh 'docker exec mycontainer /usr/local/tomcat/bin/startup.sh'
         
     stage('deploy with ansible') {
-        sh 'ansible-playbook myweb.yml'
+        sh 'ansible-playbook -i hosts myweb.yml'
         
         }
        
