@@ -16,3 +16,4 @@ node {
         sh 'docker exec mydeployment2 /usr/local/tomcat/bin/startup.sh'
     }
 }
+ 
