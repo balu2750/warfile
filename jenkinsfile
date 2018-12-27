@@ -10,9 +10,9 @@ node {
     }
     stage('Deploy') { 
         sh 'docker network create mynetwork'
-        sh 'docker run -itd --name mydeployment -v /var/lib/jenkins/workspace/test-pipe/src/main/webapp/:/usr/local/tomcat/webapps/ --net mynetwork -p 8081:8080 tomcat:latest'
-        sh 'docker start mydeployment'
-        sh 'docker exec mydeployment /usr/local/tomcat/bin/shutdown.sh' 
-        sh 'docker exec mydeployment /usr/local/tomcat/bin/startup.sh'
+        sh 'docker run -itd --name mydeployment1 -v /var/lib/jenkins/workspace/test-pipe/src/main/webapp/:/usr/local/tomcat/webapps/ --net mynetwork -p 8081:8080 tomcat:latest'
+        sh 'docker start mydeployment1'
+        sh 'docker exec mydeployment1 /usr/local/tomcat/bin/shutdown.sh' 
+        sh 'docker exec mydeployment1 /usr/local/tomcat/bin/startup.sh'
     }
 }
