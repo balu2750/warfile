@@ -13,6 +13,9 @@ node {
         sh 'docker start mycontainer'
         sh 'docker exec mycontainer /usr/local/tomcat/bin/shutdown.sh' 
         sh 'docker exec mycontainer /usr/local/tomcat/bin/startup.sh'
+        
+    stage('deploy with ansible') {
+        sh 'ansible-playbook 
     }
 }
  
