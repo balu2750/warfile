@@ -12,7 +12,7 @@ node {
         /* sh 'docker rm -f $(docker ps -a)' */
         /* sh 'docker network create -d mynetwork --subnet=11.12.0.0/16 --ingress --opt com.docker.network.mtu=9216 --opt encrypted=true my-ingress-network' */
         sh 'docker run -itd --privileged --name mycontainer -v /var/lib/jenkins/workspace/CICD-JenkinsFILE/src/main/webapp/:/usr/local/tomcat/webapps/ --net bridge -p 1234:8080 tomcat:latest'
-        sh 'docker attach mycontainer'
+        /* sh 'docker attach mycontainer' */
         sh 'docker exec mycontainer /usr/local/tomcat/bin/shutdown.sh' 
         sh 'docker exec mycontainer /usr/local/tomcat/bin/startup.sh'
         
