@@ -6,4 +6,4 @@ RUN tar -xvzf apache-tomcat-8.5.37.tar.gz
 RUN yum install git -y
 RUN git clone https://github.com/balu2750/warfile
 RUN mv ./warfile/src/main/webapp/* /apache-tomcat-8.5.37/webapps/.
-RUN /usr/local/tomcat/bin/startup.sh
+RUN /apache-tomcat-8.5.37/bin/startup.sh
