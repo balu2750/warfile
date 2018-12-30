@@ -1,15 +1,15 @@
 node {  
     stage('compile') { 
-        sh 'cd /var/lib/jenkins/workspace/CICD-jenkinsFILE'
+        sh 'cd /var/lib/jenkins/workspace/CICD-JenkinsFILE'
         sh 'rm -rf *'
         sh 'git clone https://github.com/balu2750/warfile'
     }
     stage('Test') {
-        sh 'mv /var/lib/jenkins/workspace/test-pipe/warfile/* /var/lib/jenkins/workspace/CICD-jenkinsFILE/'
+        sh 'mv /var/lib/jenkins/workspace/test-pipe/warfile/* /var/lib/jenkins/workspace/CICD-JenkinsFILE/'
         sh 'mvn clean package'     
     }
     stage('Deploy') { 
-        sh 'docker run -itd --name mycontainer -v /var/lib/jenkins/workspace/CICD-jenkinsFILE/src/main/webapp/:/usr/local/tomcat/webapps/ --net mynetwork -p 8081:8080 tomcat:latest'
+        sh 'docker run -itd --name mycontainer -v /var/lib/jenkins/workspace/CICD-JenkinsFILE/src/main/webapp/:/usr/local/tomcat/webapps/ --net mynetwork -p 8081:8080 tomcat:latest'
         sh 'docker start mycontainer'
         sh 'docker exec mycontainer /usr/local/tomcat/bin/shutdown.sh' 
         sh 'docker exec mycontainer /usr/local/tomcat/bin/startup.sh'
