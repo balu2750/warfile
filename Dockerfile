@@ -1,5 +1,6 @@
 FROM centos
 MAINTAINER BALAYYA_BABU
+RUN yum install wget -y
 RUN wget https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
 RUN tar -xvzf apache-tomcat-8.5.37.tar.gz
 RUN yum install git -y
