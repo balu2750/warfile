@@ -1,5 +1,5 @@
 ---
-- hosts: master
+- hosts: localhost
   # sudo permission
   become: true
 
