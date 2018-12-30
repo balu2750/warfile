@@ -9,6 +9,7 @@ node {
         sh 'mvn clean package'     
     }
     stage('Deploy') { 
+        sh 'docker network create mynetwork'
         sh 'docker run -itd --name mycontainer -v /var/lib/jenkins/workspace/CICD-JenkinsFILE/src/main/webapp/:/usr/local/tomcat/webapps/ --net mynetwork -p 8081:8080 tomcat:latest'
         sh 'docker start mycontainer'
         sh 'docker exec mycontainer /usr/local/tomcat/bin/shutdown.sh' 
