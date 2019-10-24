@@ -1,6 +1,6 @@
 node {  
     stage('compile') { 
-        sh 'cd /var/lib/jenkins/workspace/CICD-JenkinsFILE'
+        sh 'cd /var/lib/jenkins/workspace/job-1'
         sh 'rm -rf *'
         sh 'git clone https://github.com/balu2750/warfile'
     }
