@@ -5,7 +5,8 @@ node {
         sh 'git clone https://github.com/balu2750/warfile'
     }
     stage('compile, Test') {
-        sh 'mv  /var/lib/jenkins/workspace/job-1/warfile/* /var/lib/jenkins/workspace/.' 
+        sh 'mv  /var/lib/jenkins/workspace/job-1/warfile/* /var/lib/jenkins/workspace/.'
+        sh 'cd /var/lib/jenkins/workspace/.'
         sh 'mvn clean package'     
     }
     stage('Deploy') { 
