@@ -1,6 +1,6 @@
 node {  
     stage('checkout') { 
-        sh 'cd /var/lib/jenkins/jobs/job-1'
+        sh 'cd /var/lib/jenkins/workspace/job-1'
         sh 'rm -rf *'
         sh 'git clone https://github.com/balu2750/warfile'
     }
