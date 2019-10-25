@@ -1,11 +1,11 @@
 node {  
     stage('checkout') { 
-        sh 'cd /var/lib/jenkins/workspace/job-1/warfile/.'
+        sh 'cd /var/lib/jenkins/workspace/job-1/.'
         sh 'rm -rf *'
         sh 'git clone https://github.com/balu2750/warfile'
     }
-    stage('compile, Test') {
-       /* sh 'mv  /var/lib/jenkins/workspace/job-1/warfile/* /var/lib/jenkins/workspace/' */
+    stage('build') {
+        sh 'mv  /var/lib/jenkins/workspace/job-1/warfile/* /var/lib/jenkins/workspace/' 
         sh 'mvn clean package'     
     }
     stage('Deploy') { 
