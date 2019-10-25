@@ -15,7 +15,7 @@ node {
         sh 'docker run -itd --privileged --name mycontainer -v /var/lib/jenkins/workspace/job-1/src/main/webapp/:/usr/local/tomcat/webapps/ --net bridge -p 1234:8081 app:latest'
         sh 'docker start mycontainer' 
         /* sh 'docker exec mycontainer /usr/local/tomcat/bin/shutdown.sh' */
-        sh 'docker exec mycontainer /usr/local/tomcat/bin/startup.sh'
+        sh 'docker exec mycontainer /apache-tomcat-8.5.47/bin/startup.sh'
         
     stage('deploy with ansible') {
         sh 'ansible-playbook myweb.yml'
