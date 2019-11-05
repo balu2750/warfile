@@ -8,9 +8,6 @@ node {
         sh 'mv  /var/lib/jenkins/workspace/Temenos-sample/warfile/* /var/lib/jenkins/workspace/Temenos-sample/' 
         sh 'mvn clean package'     
     }
-    stage('deploy') {
-        sh 'ansible-playbook myweb.yml'
-    }
     
  }
 
