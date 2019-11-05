@@ -1,7 +1,7 @@
 node {  
     stage('checkout') { 
         sh 'cd /var/lib/jenkins/workspace/Temenos-sample/.'
-        sh 'rm -rf *'
+        /* sh 'rm -rf *' */
         sh 'git clone https://github.com/balu2750/warfile'
     }
     stage('build') {
