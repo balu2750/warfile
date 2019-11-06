@@ -9,6 +9,14 @@ node {
         sh 'mvn clean package'     
     }
     
+    environment {
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCAL = "http"
+        NEXUS_URL = "localhost:8081"
+        NEXUS_REPOSITORY = "Temenos-sample"
+        NEXUS_CREDENTIAL_ID = "nexus_credentials"
+    }
+        
     stage("publish to nexus") {
             
                script {
