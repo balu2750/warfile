@@ -4,10 +4,10 @@ node {
         sh 'rm -rf *'
         sh 'git clone https://github.com/balu2750/warfile'
     }
- /*   stage('build') {
+    stage('build') {
         sh 'mv  /var/lib/jenkins/workspace/Temenos-sample/warfile/* /var/lib/jenkins/workspace/Temenos-sample/' 
         sh 'mvn clean package'     
-   } */
+   } 
         
     stage("publish to nexus") {
             
