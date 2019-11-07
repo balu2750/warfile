@@ -11,7 +11,7 @@ node {
         
     stage("publish to nexus") {
             
-            nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: 'RELEASE', file: '/var/lib/jenkins/workspace/Temenos-sample/target/myweb-0.12.0/WEB-INF/lib/bcmail-jdk14-1.38.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'in.shan5a6', nexusUrl: '10.1.1.5:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Temenos-sample', version: '3.13.0'
+            nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: 'RELEASE', file: '/var/lib/jenkins/workspace/Temenos-sample/target/myweb-0.12.0.war/WEB-INF/lib/bcmail-jdk14-1.38.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'in.shan5a6', nexusUrl: '10.1.1.5:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Temenos-sample', version: '3.13.0'
             }
         }
     
